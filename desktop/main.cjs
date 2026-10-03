@@ -20,7 +20,7 @@ const path = require("node:path");
 const fs = require("node:fs");
 
 const isDev = !app.isPackaged;
-const REMOTE_ORIGIN = "https://nightglass.vercel.app";
+const REMOTE_ORIGIN = "https://nightglass-aniruddha-adaks-projects.vercel.app";
 const DEV_ORIGIN = "http://localhost:3000";
 const START_URL = process.env.NIGHTGLASS_URL || (isDev ? DEV_ORIGIN : REMOTE_ORIGIN);
 

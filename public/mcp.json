@@ -7,7 +7,7 @@
     "url": "https://github.com/aniruddhaadak80/nightglass",
     "source": "github"
   },
-  "websiteUrl": "https://nightglass.vercel.app",
+  "websiteUrl": "https://nightglass-aniruddha-adaks-projects.vercel.app",
   "packages": [
     {
       "registryType": "npm",
@@ -22,7 +22,7 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://nightglass.vercel.app/api/mcp",
+      "url": "https://nightglass-aniruddha-adaks-projects.vercel.app/api/mcp",
       "headers": []
     }
   ]

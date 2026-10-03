@@ -4,14 +4,14 @@
 
 **Know what is worth observing tonight, and why.**
 
-[![Live app](https://img.shields.io/badge/live-nightglass.vercel.app-0b2b2a?style=flat-square)](https://nightglass.vercel.app)
+[![Live app](https://img.shields.io/badge/live-nightglass--aniruddha-adaks--projects.vercel.app-0b2b2a?style=flat-square)](https://nightglass-aniruddha-adaks-projects.vercel.app)
 [![License: MIT](https://img.shields.io/badge/license-MIT-c08a2e?style=flat-square)](LICENSE)
 [![Next.js 16](https://img.shields.io/badge/Next.js-16-000?style=flat-square&logo=next.js)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
 [![Neon Postgres](https://img.shields.io/badge/Postgres-Neon-3a3a3a?style=flat-square&logo=postgresql)](https://neon.tech)
-[![MCP tools](https://img.shields.io/badge/agent-8%20MCP%20tools-34d399?style=flat-square)](https://nightglass.vercel.app/api/mcp)
+[![MCP tools](https://img.shields.io/badge/agent-8%20MCP%20tools-34d399?style=flat-square)](https://nightglass-aniruddha-adaks-projects.vercel.app/api/mcp)
 
-[Live App](https://nightglass.vercel.app) · [GitHub](https://github.com/aniruddhaadak80/nightglass) · [API](https://nightglass.vercel.app/api/health) · [Agent](https://nightglass.vercel.app/agent) · [Issues](https://github.com/aniruddhaadak80/nightglass/issues)
+[Live App](https://nightglass-aniruddha-adaks-projects.vercel.app) · [GitHub](https://github.com/aniruddhaadak80/nightglass) · [API](https://nightglass-aniruddha-adaks-projects.vercel.app/api/health) · [Agent](https://nightglass-aniruddha-adaks-projects.vercel.app/agent) · [Issues](https://github.com/aniruddhaadak80/nightglass/issues)
 
 </div>
 
@@ -120,7 +120,7 @@ the next cold start.
 ```bash
 npm run check        # typecheck, lint, test, build
 npm run verify:live  # the full journey against a running deployment
-BASE_URL=https://nightglass.vercel.app npm run verify:live
+BASE_URL=https://nightglass-aniruddha-adaks-projects.vercel.app npm run verify:live
 ```
 
 ---
@@ -322,7 +322,7 @@ Mutating tools are idempotent where that is meaningful: a repeated
 `log_observation` for the same object and date returns the existing entry instead
 of creating a second one, and `create_plan` honours an `idempotencyKey`.
 
-Try it live from the [`/agent`](https://nightglass.vercel.app/agent) page, or
+Try it live from the [`/agent`](https://nightglass-aniruddha-adaks-projects.vercel.app/agent) page, or
 point any MCP client at the endpoint:
 
 ```json
@@ -330,7 +330,7 @@ point any MCP client at the endpoint:
   "mcpServers": {
     "nightglass": {
       "type": "http",
-      "url": "https://nightglass.vercel.app/api/mcp"
+      "url": "https://nightglass-aniruddha-adaks-projects.vercel.app/api/mcp"
     }
   }
 }
@@ -377,7 +377,7 @@ invalidating every previously exported session card.
 Everything is scoped to the anonymous session cookie. There are no accounts.
 
 ```bash
-BASE=https://nightglass.vercel.app
+BASE=https://nightglass-aniruddha-adaks-projects.vercel.app
 
 # Health — verifies the real persistence path, not a static object
 curl -s $BASE/api/health
@@ -417,7 +417,7 @@ curl -s -b jar -X DELETE $BASE/api/plans/$PLAN_ID
 The full journey, including the MCP mutation path, is asserted end to end:
 
 ```bash
-BASE_URL=https://nightglass.vercel.app npm run verify:live
+BASE_URL=https://nightglass-aniruddha-adaks-projects.vercel.app npm run verify:live
 ```
 
 ---
