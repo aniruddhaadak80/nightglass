@@ -30,6 +30,11 @@ sealed into a replayable SHA-384 chain.
 
 It runs in a browser and as a desktop app for macOS, Windows and Linux.
 
+![The ranked sky for a live site: real conditions, real targets, and the obstruction control that re-cuts the whole ranking](https://raw.githubusercontent.com/aniruddhaadak80/nightglass/main/docs/screenshot-tonight.png)
+
+<sub>Captured from the live deployment: <code>/tonight</code>, with Open-Meteo conditions and a
+catalogue of 321 objects fetched live from the CDS.</sub>
+
 ---
 
 ## ✨ Features
