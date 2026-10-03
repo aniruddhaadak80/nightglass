@@ -1,8 +1,8 @@
-# electron-builder configuration.
+# electron-builder configuration for the nightglass desktop shell.
 #
-# Ships the same product as three native installers. The desktop shell loads the
-# deployed web origin, so the bundle is small and the engine cannot drift
-# between the desktop and browser builds.
+# Ships the same product as three native installers. The shell loads the deployed
+# nightglass origin, so the bundle stays small and the observability engine cannot
+# drift between the desktop and browser builds.
 #
 # Windows, macOS and Linux artifacts are produced by .github/workflows/desktop.yml
 # on their own runners: a macOS .dmg cannot be cross-built from Linux, so each
@@ -14,15 +14,15 @@ copyright: Copyright (c) 2026 aniruddhaadak80
 
 directories:
   output: release
-  buildResources: desktop/build
+  buildResources: build
 
 files:
-  - desktop/main.cjs
-  - desktop/preload.cjs
+  - main.cjs
+  - preload.cjs
   - package.json
 
-# Only ship the Electron runtime, not the whole web dependency tree: the UI is
-# served from the deployed origin.
+# Only the Electron runtime is bundled. The UI is served from the deployed
+# origin, so no web build output and no web dependency tree ships here.
 asar: true
 
 win:

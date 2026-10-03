@@ -1,26 +1,12 @@
 {
   "name": "nightglass",
-  "description": "Know what is worth observing tonight, and why. An observatory plate that ranks the real star catalogue against live weather and your actual horizon.",
   "version": "1.0.0",
+  "private": true,
+  "description": "Know what is worth observing tonight, and why. An observatory plate that ranks the real star catalogue against live weather and your actual horizon.",
   "license": "MIT",
   "type": "module",
-  "main": "desktop/main.cjs",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "desktop": "electron desktop/main.cjs",
-    "desktop:pack": "electron-builder --dir",
-    "desktop:dist": "electron-builder -mwl",
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint .",
-    "test": "vitest run",
-    "test:e2e": "playwright test",
-    "verify:live": "node scripts/verify-live.mjs",
-    "check": "npm run typecheck && npm run lint && npm test && npm run build"
-  },
   "author": "aniruddhaadak80",
-  "homepage": "https://github.com/aniruddhaadak80/nightglass",
+  "homepage": "https://nightglass.vercel.app",
   "repository": {
     "type": "git",
     "url": "https://github.com/aniruddhaadak80/nightglass.git"
@@ -43,5 +29,49 @@
   ],
   "engines": {
     "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "verify:live": "node scripts/verify-live.mjs",
+    "check": "npm run typecheck && npm run lint && npm test && npm run build",
+    "desktop:dev": "npm --prefix desktop run dev",
+    "desktop:dist": "npm --prefix desktop run dist",
+    "desktop:dist:all": "npm --prefix desktop run dist:all"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "0.5.8",
+    "@huggingface/transformers": "4.3.0",
+    "@neondatabase/serverless": "1.1.0",
+    "clsx": "2.1.1",
+    "framer-motion": "13.4.6",
+    "lucide-react": "0.577.0",
+    "next": "16.3.7",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "tailwind-merge": "3.7.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@tailwindcss/postcss": "4.3.3",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.3",
+    "@types/node": "26.6.3",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.7",
+    "jsdom": "30.1.1",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3",
+    "vitest": "5.0.2"
   }
 }

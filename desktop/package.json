@@ -1,0 +1,24 @@
+{
+  "name": "nightglass-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The nightglass desktop shell for macOS, Windows and Linux.",
+  "license": "MIT",
+  "author": "aniruddhaadak80",
+  "homepage": "https://github.com/aniruddhaadak80/nightglass",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aniruddhaadak80/nightglass.git"
+  },
+  "main": "main.cjs",
+  "scripts": {
+    "dev": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist:all": "electron-builder -mwl"
+  },
+  "devDependencies": {
+    "electron": "40.2.0",
+    "electron-builder": "26.2.0"
+  }
+}
