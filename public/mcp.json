@@ -1,0 +1,29 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-06-18/server.schema.json",
+  "name": "io.github.aniruddhaadak80/nightglass",
+  "description": "Rank tonight's real star catalogue against a site, an instrument and live cloud cover. Every score is explainable and sealed to a SHA-384 audit chain.",
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/aniruddhaadak80/nightglass",
+    "source": "github"
+  },
+  "websiteUrl": "https://nightglass.vercel.app",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "nightglass",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://nightglass.vercel.app/api/mcp",
+      "headers": []
+    }
+  ]
+}

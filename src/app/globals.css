@@ -1,0 +1,305 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   nightglass — "copperplate observatory"
+   --------------------------------------------------------------------------
+   Identity: an engraved observatory plate crossed with a brass meridian
+   instrument. Deep verdigris ground, brass rules, oxblood for risk, bone for
+   data. Every surface is a plate with a hairline border and a letterpress
+   caption; data is set in mono small-caps like an instrument dial.
+   ========================================================================== */
+
+@theme {
+  --color-verdigris-950: #061a19;
+  --color-verdigris-900: #0b2b2a;
+  --color-verdigris-800: #0f3734;
+  --color-verdigris-700: #143f3b;
+  --color-verdigris-600: #1d514b;
+  --color-verdigris-500: #2a6b63;
+
+  --color-brass-500: #c08a2e;
+  --color-brass-400: #d8a544;
+  --color-brass-300: #e5bf74;
+  --color-brass-200: #f0d9a8;
+
+  --color-oxblood-600: #6d2420;
+  --color-oxblood-500: #8a2f2a;
+  --color-oxblood-400: #b8433c;
+
+  --color-bone-100: #f3ecdb;
+  --color-bone-200: #e9e0cc;
+  --color-bone-300: #d8ccb2;
+  --color-bone-400: #b8ab90;
+
+  --color-ink-900: #08110f;
+  --color-ink-700: #12211f;
+
+  --font-display: var(--font-instrument-serif), Georgia, serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", monospace;
+}
+
+:root {
+  color-scheme: dark;
+  --ring: rgba(192, 138, 46, 0.55);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-verdigris-900);
+  color: var(--color-bone-200);
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum" 1, "zero" 1;
+  background-image:
+    /* faint plate ruling, like a graph sheet showing through the ink */
+    repeating-linear-gradient(
+      to bottom,
+      rgba(192, 138, 46, 0.045) 0px,
+      rgba(192, 138, 46, 0.045) 1px,
+      transparent 1px,
+      transparent 32px
+    ),
+    radial-gradient(1200px 600px at 50% -10%, rgba(42, 107, 99, 0.35), transparent 70%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* --------------------------------------------------------------- typography */
+
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+/* Letterpress caption: the small-caps label above every plate. */
+.plate-caption {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-brass-400);
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-bone-400);
+}
+
+/* ------------------------------------------------------------------ plates */
+
+.plate {
+  position: relative;
+  border: 1px solid rgba(192, 138, 46, 0.28);
+  background:
+    linear-gradient(180deg, rgba(29, 81, 75, 0.28), rgba(11, 43, 42, 0.55));
+  box-shadow:
+    inset 0 1px 0 rgba(229, 191, 116, 0.09),
+    0 1px 0 rgba(6, 26, 25, 0.6);
+}
+
+.plate-inset {
+  border: 1px solid rgba(192, 138, 46, 0.16);
+  background: rgba(6, 26, 25, 0.35);
+}
+
+/* Corner ticks: the engraver's registration marks. */
+.plate-ticked::before,
+.plate-ticked::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--color-brass-400);
+  opacity: 0.75;
+  pointer-events: none;
+}
+.plate-ticked::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+.plate-ticked::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+/* Ruled index gutter down the left edge, like a catalogue sheet. */
+.gutter {
+  border-left: 2px solid rgba(192, 138, 46, 0.3);
+  padding-left: 1rem;
+}
+
+/* ------------------------------------------------------------------ buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid rgba(192, 138, 46, 0.4);
+  background: rgba(29, 81, 75, 0.5);
+  color: var(--color-bone-100);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+.btn:hover:not(:disabled) {
+  background: rgba(42, 107, 99, 0.65);
+  border-color: var(--color-brass-400);
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: var(--color-brass-500);
+  border-color: var(--color-brass-300);
+  color: var(--color-ink-900);
+  font-weight: 600;
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-brass-400);
+}
+.btn-danger {
+  border-color: rgba(184, 67, 60, 0.6);
+  color: var(--color-oxblood-400);
+}
+.btn-danger:hover:not(:disabled) {
+  background: rgba(138, 47, 42, 0.35);
+  border-color: var(--color-oxblood-400);
+}
+
+/* Visible focus everywhere. Never remove without a replacement. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------------- fields */
+
+.field {
+  width: 100%;
+  background: rgba(6, 26, 25, 0.55);
+  border: 1px solid rgba(192, 138, 46, 0.3);
+  color: var(--color-bone-100);
+  padding: 0.5rem 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+.field::placeholder {
+  color: var(--color-bone-400);
+  opacity: 0.6;
+}
+.field:focus {
+  border-color: var(--color-brass-400);
+}
+
+/* ------------------------------------------------------------------- signals */
+
+.signal-live {
+  color: var(--color-brass-300);
+}
+.signal-fallback {
+  color: var(--color-oxblood-400);
+}
+
+/* --------------------------------------------------------------- horizon band
+   The signature interaction's frame: horizontal altitude bands, 0 at the
+   bottom, 90 at the top. Bands below the local obstruction are hatched out
+   because nothing down there is observable. */
+
+.horizon-frame {
+  position: relative;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(
+      to top,
+      rgba(192, 138, 46, 0.13) 0px,
+      rgba(192, 138, 46, 0.13) 1px,
+      transparent 1px,
+      transparent 25%
+    ),
+    rgba(6, 26, 25, 0.5);
+}
+
+.horizon-below {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(184, 67, 60, 0.22) 0px,
+    rgba(184, 67, 60, 0.22) 2px,
+    transparent 2px,
+    transparent 7px
+  );
+  border-top: 1px solid var(--color-oxblood-400);
+}
+
+/* --------------------------------------------------------------- utilities */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--color-brass-500);
+  color: var(--color-ink-900);
+  padding: 0.6rem 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+@keyframes ng-draw {
+  from {
+    stroke-dashoffset: var(--ng-draw-length, 400);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes ng-rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: ng-rise 320ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

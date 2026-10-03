@@ -1,0 +1,60 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+*.tsbuildinfo
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env
+.env*.local
+
+# vercel
+.vercel
+
+# local database files
+*.sqlite
+*.sqlite3
+.pglite/
+
+# proof artifacts written by the live verifier and the browser suite
+/verify-live-report.json
+/playwright-report/
+/test-results/
+/e2e-*.json
+/e2e-*.log
+
+# local server + tool logs
+*.log
+/.vercel-prod*.env
+/skills-lock.json
+
+# tool-installed agent skills (not project code)
+/.agents/
+
+.vercel
+
+# Vercel appends this when you run `vercel link`. It must not swallow the
+# documented example, or a fork never receives it.
+.env*
+!.env.example

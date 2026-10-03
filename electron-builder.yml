@@ -1,0 +1,62 @@
+# electron-builder configuration.
+#
+# Ships the same product as three native installers. The desktop shell loads the
+# deployed web origin, so the bundle is small and the engine cannot drift
+# between the desktop and browser builds.
+#
+# Windows, macOS and Linux artifacts are produced by .github/workflows/desktop.yml
+# on their own runners: a macOS .dmg cannot be cross-built from Linux, so each
+# platform builds its own.
+
+appId: dev.aniruddhaadak80.nightglass
+productName: nightglass
+copyright: Copyright (c) 2026 aniruddhaadak80
+
+directories:
+  output: release
+  buildResources: desktop/build
+
+files:
+  - desktop/main.cjs
+  - desktop/preload.cjs
+  - package.json
+
+# Only ship the Electron runtime, not the whole web dependency tree: the UI is
+# served from the deployed origin.
+asar: true
+
+win:
+  target:
+    - target: nsis
+      arch: [x64, arm64]
+  artifactName: nightglass-${version}-win-${arch}.${ext}
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  shortcutName: nightglass
+
+mac:
+  category: public.app-category.education
+  target:
+    - target: dmg
+      arch: [x64, arm64]
+    - target: zip
+      arch: [x64, arm64]
+  artifactName: nightglass-${version}-mac-${arch}.${ext}
+  hardenedRuntime: true
+  gatekeeperAssess: false
+
+linux:
+  category: Science
+  target:
+    - target: AppImage
+      arch: [x64, arm64]
+    - target: deb
+      arch: [x64]
+  artifactName: nightglass-${version}-linux-${arch}.${ext}
+  maintainer: aniruddhaadak80
+
+publish: null

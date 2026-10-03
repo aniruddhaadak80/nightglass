@@ -1,0 +1,47 @@
+{
+  "name": "nightglass",
+  "description": "Know what is worth observing tonight, and why. An observatory plate that ranks the real star catalogue against live weather and your actual horizon.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "desktop": "electron desktop/main.cjs",
+    "desktop:pack": "electron-builder --dir",
+    "desktop:dist": "electron-builder -mwl",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "verify:live": "node scripts/verify-live.mjs",
+    "check": "npm run typecheck && npm run lint && npm test && npm run build"
+  },
+  "author": "aniruddhaadak80",
+  "homepage": "https://github.com/aniruddhaadak80/nightglass",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aniruddhaadak80/nightglass.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aniruddhaadak80/nightglass/issues"
+  },
+  "keywords": [
+    "astronomy",
+    "stargazing",
+    "observing-planner",
+    "limiting-magnitude",
+    "bortle",
+    "dark-sky",
+    "messier",
+    "mcp",
+    "agent",
+    "nextjs",
+    "neon-postgres"
+  ],
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}
