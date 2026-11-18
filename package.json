@@ -47,7 +47,6 @@
   },
   "dependencies": {
     "@electric-sql/pglite": "0.5.8",
-    
     "@neondatabase/serverless": "1.1.0",
     "clsx": "2.1.1",
     "framer-motion": "13.4.6",
@@ -73,5 +72,8 @@
     "tailwindcss": "4.3.3",
     "typescript": "5.9.3",
     "vitest": "5.1.0"
+  },
+  "overrides": {
+    "@typescript-eslint/typescript-estree": "^8.73.0"
   }
 }
